@@ -11,21 +11,22 @@
     ];
 
     const CATEGORIES = {
-      retiro_0_20: { label: "espacios de retiro (de 0 a 20 pers)", color: "#8b5a2b" },
-      retiro_20_40: { label: "espacios de retiro (de 20 a 40 pers)", color: "#9f6a35" },
-      retiro_40_60: { label: "espacios de retiro (de 40 a 60 pers)", color: "#b2783f" },
-      eventos_holisticos: { label: "espacios en alquiler para eventos holisticos", color: "#5e7c3a" },
-      restaurantes: { label: "restaurantes", color: "#d18c2c" },
-      panaderia_autor: { label: "panaderia de autor", color: "#c17a52" },
-      ropa_conceptual: { label: "ropa conceptual", color: "#7a5fb0" },
-      medico: { label: "medico", color: "#e0553e" },
-      canchas_tennis: { label: "canchas de tennis", color: "#2f8a5d" },
-      piscinas: { label: "piscinas", color: "#2d78b8" },
-      lavanderias: { label: "lavanderias", color: "#4a94c9" },
-      mudanzas: { label: "mudanzas", color: "#5d6775" },
-      clases_adultos: { label: "clases interactivas adultos", color: "#a55d8f" },
-      clases_ninos: { label: "clases interactivas ninos", color: "#e38a9b" },
-      otro: { label: "otro", color: "#6b5ea8" },
+      retiro_0_20: { label: "espacios de retiro (de 0 a 20 pers)", color: "#d94841" },
+      retiro_20_40: { label: "espacios de retiro (de 20 a 40 pers)", color: "#2f9e44" },
+      retiro_40_60: { label: "espacios de retiro (de 40 a 60 pers)", color: "#1971c2" },
+      eventos_holisticos: { label: "espacios en alquiler para eventos holisticos", color: "#7048e8" },
+      restaurantes: { label: "restaurantes", color: "#f76707" },
+      panaderia_autor: { label: "panaderia de autor", color: "#0b7285" },
+      ropa_conceptual: { label: "ropa conceptual", color: "#ae3ec9" },
+      medico: { label: "medico", color: "#e03131" },
+      canchas_tennis: { label: "canchas de tennis", color: "#5c940d" },
+      piscinas: { label: "piscinas", color: "#1c7ed6" },
+      lavanderias: { label: "lavanderias", color: "#15aabf" },
+      mudanzas: { label: "mudanzas", color: "#495057" },
+      clases_adultos: { label: "clases interactivas adultos", color: "#c2255c" },
+      clases_ninos: { label: "clases interactivas ninos", color: "#2b8a3e" },
+      apotecary: { label: "apotecary", color: "#364fc7" },
+      otro: { label: "otro", color: "#6741d9" },
     };
 
     const SACRED_VALLEY_BOUNDS = L.latLngBounds([
@@ -167,7 +168,7 @@
     }
 
     function showStatus(message, isError = true) {
-      statusEl.style.color = isError ? "#8b2e1a" : "#1e6f48";
+      statusEl.style.color = isError ? "#9d7f1f" : "#6f5a1a";
       statusEl.textContent = message;
       setTimeout(() => {
         if (statusEl.textContent === message) statusEl.textContent = "";
@@ -199,11 +200,11 @@
       if (view === "add") {
         infoView.classList.remove("active");
         addView.classList.add("active");
-        drawerTitle.textContent = "Agregar un lugar";
+        drawerTitle.textContent = "Yellow page Secret Valle";
       } else {
         addView.classList.remove("active");
         infoView.classList.add("active");
-        drawerTitle.textContent = "Ver información";
+        drawerTitle.textContent = "Yellow page Secret Valle";
       }
     }
 

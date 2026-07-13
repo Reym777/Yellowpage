@@ -1,13 +1,13 @@
 ﻿    :root {
-      --bg: #f4f0e8;
-      --panel: #fffaf1;
-      --ink: #1f2a1f;
-      --muted: #4a5a49;
-      --line: #d8cfbf;
-      --earth: #7f5a2a;
-      --green: #2f6e4f;
-      --alert: #8b2e1a;
-      --shadow: 0 20px 50px rgba(31, 42, 31, 0.14);
+      --bg: #fff8d8;
+      --panel: #fffbe8;
+      --ink: #5e4d14;
+      --muted: #8a7232;
+      --line: #eadb9f;
+      --earth: #e5c96a;
+      --green: #d9be5a;
+      --alert: #9d7f1f;
+      --shadow: 0 20px 50px rgba(120, 98, 26, 0.16);
       --radius: 16px;
     }
 
@@ -19,15 +19,15 @@
       font-family: "Manrope", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 10% 15%, rgba(127, 90, 42, 0.12), transparent 33%),
-        radial-gradient(circle at 84% 22%, rgba(47, 110, 79, 0.12), transparent 32%),
-        linear-gradient(180deg, #f7f3ec, #ece3d3 70%, #e6dac8);
+        radial-gradient(circle at 10% 15%, rgba(245, 220, 120, 0.32), transparent 33%),
+        radial-gradient(circle at 84% 22%, rgba(250, 231, 152, 0.3), transparent 32%),
+        linear-gradient(180deg, #fffdf0, #fff6cd 70%, #fcecae);
     }
 
     .app { position: relative; }
 
     .card {
-      background: linear-gradient(180deg, rgba(255, 250, 241, 0.98), rgba(250, 244, 233, 0.98));
+      background: linear-gradient(180deg, rgba(255, 252, 228, 0.98), rgba(255, 245, 196, 0.98));
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -50,11 +50,11 @@
       min-height: 40px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 250, 241, 0.95);
-      border: 1px solid #d5caba;
+      background: rgba(255, 250, 216, 0.95);
+      border: 1px solid #e8d995;
       font-size: 0.82rem;
       font-weight: 700;
-      color: #2a4530;
+      color: #6a561a;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
     }
 
@@ -65,8 +65,8 @@
       z-index: 700;
       padding: 10px;
       width: 220px;
-      background: rgba(255, 250, 241, 0.95);
-      border: 1px solid #d5caba;
+      background: rgba(255, 250, 216, 0.95);
+      border: 1px solid #e8d995;
       border-radius: 12px;
       box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
       font-size: 0.8rem;
@@ -77,7 +77,7 @@
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #2a4530;
+      color: #6a561a;
     }
 
     .legend-item {
@@ -110,7 +110,7 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 1.4rem;
       line-height: 1;
-      color: #2b3f2f;
+      color: #6a561a;
     }
 
     .btn-menu,
@@ -119,14 +119,14 @@
     button {
       width: 100%;
       border-radius: 12px;
-      border: 1px solid #d3c8b8;
+      border: 1px solid #e8d995;
       padding: 10px 11px;
       font-family: inherit;
       font-size: 0.94rem;
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.15s ease, box-shadow 0.2s ease;
-      background: #fffef9;
+      background: #fff9dc;
       color: var(--ink);
     }
 
@@ -135,19 +135,19 @@
     .btn-secondary:hover,
     button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 18px rgba(31, 42, 31, 0.14);
+      box-shadow: 0 10px 18px rgba(120, 98, 26, 0.18);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #3e7f5c, #2f6e4f);
-      color: #fff;
-      border: 1px solid #2b6146;
+      background: linear-gradient(135deg, #ffe79a, #f6d766);
+      color: #5a4610;
+      border: 1px solid #d8bc5a;
     }
 
     .btn-secondary {
-      background: linear-gradient(135deg, #8f6a37, #7f5a2a);
-      color: #fff;
-      border: 1px solid #6a491f;
+      background: linear-gradient(135deg, #ffefb9, #f2d88a);
+      color: #5a4610;
+      border: 1px solid #d8bc5a;
     }
 
     .drawer {
@@ -172,7 +172,7 @@
       justify-content: space-between;
       padding: 14px 16px;
       border-bottom: 1px solid var(--line);
-      background: rgba(255, 252, 246, 0.95);
+      background: rgba(255, 248, 208, 0.95);
     }
 
     .drawer-title {
@@ -180,7 +180,7 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 1.7rem;
       line-height: 1;
-      color: #2b3f2f;
+      color: #6a561a;
     }
 
     .drawer-body {
@@ -196,7 +196,7 @@
     .section-label {
       margin: 0 0 4px;
       font-weight: 700;
-      color: #2f4630;
+      color: #7a6320;
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -208,13 +208,13 @@
       font-size: 0.9rem;
     }
 
-    label { font-size: 0.84rem; color: #3a4a39; font-weight: 600; }
+    label { font-size: 0.84rem; color: #7a6320; font-weight: 600; }
 
     input, select, textarea {
       width: 100%;
       border-radius: 12px;
-      border: 1px solid #d3c8b8;
-      background: #fffef9;
+      border: 1px solid #e8d995;
+      background: #fff9dc;
       color: var(--ink);
       font-family: inherit;
       font-size: 0.94rem;
@@ -224,8 +224,8 @@
     textarea { min-height: 74px; resize: vertical; }
 
     input:focus, select:focus, textarea:focus {
-      outline: 2px solid rgba(47, 110, 79, 0.25);
-      border-color: #8bb69b;
+      outline: 2px solid rgba(224, 193, 90, 0.4);
+      border-color: #d9be5a;
     }
 
     .grid2 {
@@ -244,7 +244,7 @@
     .hint {
       margin: 0;
       font-size: 0.8rem;
-      color: #5a6b59;
+      color: #8a7232;
     }
 
     .status {
@@ -272,17 +272,17 @@
     }
 
     .item {
-      border: 1px solid #d8cfbf;
+      border: 1px solid #e6d28c;
       border-radius: 12px;
-      background: #fffdf7;
+      background: #fff7d1;
       padding: 10px;
     }
 
     .item h4 { margin: 0 0 4px; font-size: 0.96rem; }
-    .meta { margin: 0; font-size: 0.79rem; color: #4f624f; }
+    .meta { margin: 0; font-size: 0.79rem; color: #8a7232; }
 
     .wh-link {
-      color: #1e6f48;
+      color: #7a6320;
       font-weight: 700;
       text-decoration: none;
     }
@@ -291,10 +291,10 @@
       display: grid;
       gap: 8px;
       margin-top: 4px;
-      border: 1px solid #ddcfbd;
+      border: 1px solid #e6d28c;
       border-radius: 12px;
       padding: 10px;
-      background: #fffdf8;
+      background: #fff6cb;
     }
 
     .day-row {
