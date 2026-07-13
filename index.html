@@ -48,9 +48,23 @@
             </div>
           </div>
 
+          <div class="map-search-wrap">
+            <div>
+              <label for="mapSearchInput">Buscar lugar o delimitar comuna</label>
+              <input id="mapSearchInput" type="text" placeholder="Ej: Pisac, Urubamba, clínica San Juan" />
+            </div>
+            <div class="map-search-actions">
+              <button id="btnMapSearch" type="button" class="btn-secondary">Rechercher</button>
+              <button id="btnClearBoundary" type="button">Limpiar delimitación</button>
+            </div>
+          </div>
+
           <div class="btn-row">
-            <button id="btnExport" type="button">Exportar JSON</button>
-            <button id="btnImport" type="button">Importar JSON</button>
+            <button id="btnMapIO" type="button">Importar / Exportar mapa</button>
+          </div>
+          <div id="mapIoMenu" class="map-io-menu" hidden>
+            <button id="btnMapExport" type="button">Exportar JSON</button>
+            <button id="btnMapImport" type="button">Importar JSON</button>
           </div>
           <input id="jsonFile" type="file" accept="application/json" style="display:none" />
 

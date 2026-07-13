@@ -54,11 +54,13 @@
     const addView = document.getElementById("addView");
 
     const searchInput = document.getElementById("searchInput");
+    const mapSearchInput = document.getElementById("mapSearchInput");
     const filterCategory = document.getElementById("filterCategory");
     const categorySelect = document.getElementById("category");
     const legendList = document.getElementById("legendList");
     const legend = document.querySelector(".legend");
     const btnToggleLegend = document.getElementById("btnToggleLegend");
+    const mapIoMenu = document.getElementById("mapIoMenu");
     const statusEl = document.getElementById("status");
     const itemsList = document.getElementById("itemsList");
     const hoursGrid = document.getElementById("hoursGrid");
@@ -66,6 +68,7 @@
     let places = loadPlaces();
     let markers = [];
     let pendingMarker = null;
+    let mapBoundaryLayer = null;
 
     const fields = {
       placeName: document.getElementById("placeName"),
@@ -196,6 +199,10 @@
     }
 
     function ensureDrawerOpen(view) {
+      if (window.matchMedia("(max-width: 820px)").matches && legend.classList.contains("open")) {
+        legend.classList.remove("open");
+        btnToggleLegend.textContent = "ver leyenda";
+      }
       drawer.classList.add("open");
       drawer.setAttribute("aria-hidden", "false");
       if (view === "add") {
@@ -215,6 +222,10 @@
     }
 
     function toggleLegend() {
+      const willOpen = !legend.classList.contains("open");
+      if (willOpen && window.matchMedia("(max-width: 820px)").matches) {
+        closeDrawer();
+      }
       legend.classList.toggle("open");
       btnToggleLegend.textContent = legend.classList.contains("open") ? "ocultar leyenda" : "ver leyenda";
     }
@@ -251,6 +262,62 @@
         };
       } catch (_e) {
         return null;
+      }
+    }
+
+    function clearBoundaryLayer() {
+      if (mapBoundaryLayer) {
+        map.removeLayer(mapBoundaryLayer);
+        mapBoundaryLayer = null;
+      }
+    }
+
+    async function searchMapPlaceOrDistrict() {
+      const query = String(mapSearchInput.value || "").trim();
+      if (!query) {
+        showStatus("Escribe un lugar o comuna para buscar.");
+        return;
+      }
+
+      try {
+        const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=pe&polygon_geojson=1&q=${encodeURIComponent(query + " Valle Sagrado Cusco Peru")}`;
+        const res = await fetch(url, { headers: { Accept: "application/json" } });
+        if (!res.ok) {
+          showStatus("No se pudo completar la búsqueda ahora.");
+          return;
+        }
+
+        const data = await res.json();
+        if (!Array.isArray(data) || !data[0]) {
+          showStatus("No encontré ese lugar o comuna. Intenta con otro nombre.");
+          return;
+        }
+
+        const hit = data[0];
+        const lat = Number(hit.lat);
+        const lng = Number(hit.lon);
+
+        clearBoundaryLayer();
+
+        if (hit.geojson && (hit.geojson.type === "Polygon" || hit.geojson.type === "MultiPolygon")) {
+          mapBoundaryLayer = L.geoJSON(hit.geojson, {
+            style: {
+              color: "#1f2a1f",
+              weight: 2,
+              opacity: 0.95,
+              fillColor: "#ffd600",
+              fillOpacity: 0.16,
+            },
+          }).addTo(map);
+          map.fitBounds(mapBoundaryLayer.getBounds(), { padding: [20, 20] });
+          showStatus(`Comuna delimitada: ${hit.display_name || query}`, false);
+          return;
+        }
+
+        map.flyTo([lat, lng], 15, { duration: 0.8 });
+        showStatus(`Lugar encontrado: ${hit.display_name || query}`, false);
+      } catch (_e) {
+        showStatus("Error al buscar. Intenta de nuevo en unos segundos.");
       }
     }
 
@@ -430,7 +497,7 @@
       ensureDrawerOpen("info");
     });
 
-    document.getElementById("btnExport").addEventListener("click", () => {
+    function exportPlacesJson() {
       const blob = new Blob([JSON.stringify(places, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -439,10 +506,29 @@
       a.click();
       URL.revokeObjectURL(url);
       showStatus("Exportación completada.", false);
+    }
+
+    function openImportDialog() {
+      document.getElementById("jsonFile").click();
+    }
+
+    document.getElementById("btnMapIO").addEventListener("click", () => {
+      const isHidden = mapIoMenu.hasAttribute("hidden");
+      if (isHidden) {
+        mapIoMenu.removeAttribute("hidden");
+      } else {
+        mapIoMenu.setAttribute("hidden", "");
+      }
     });
 
-    document.getElementById("btnImport").addEventListener("click", () => {
-      document.getElementById("jsonFile").click();
+    document.getElementById("btnMapExport").addEventListener("click", () => {
+      exportPlacesJson();
+      mapIoMenu.setAttribute("hidden", "");
+    });
+
+    document.getElementById("btnMapImport").addEventListener("click", () => {
+      openImportDialog();
+      mapIoMenu.setAttribute("hidden", "");
     });
 
     document.getElementById("jsonFile").addEventListener("change", async (evt) => {
@@ -489,6 +575,17 @@
 
     searchInput.addEventListener("input", render);
     filterCategory.addEventListener("change", render);
+    document.getElementById("btnMapSearch").addEventListener("click", searchMapPlaceOrDistrict);
+    document.getElementById("btnClearBoundary").addEventListener("click", () => {
+      clearBoundaryLayer();
+      showStatus("Delimitación removida.", false);
+    });
+    mapSearchInput.addEventListener("keydown", (evt) => {
+      if (evt.key === "Enter") {
+        evt.preventDefault();
+        searchMapPlaceOrDistrict();
+      }
+    });
 
     populateCategoryControls();
     renderLegend();
