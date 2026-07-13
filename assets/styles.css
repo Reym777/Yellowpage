@@ -1,12 +1,12 @@
 ﻿    :root {
-      --bg: #fff8d8;
-      --panel: #fffbe8;
-      --ink: #5e4d14;
-      --muted: #8a7232;
-      --line: #eadb9f;
-      --earth: #e5c96a;
-      --green: #d9be5a;
-      --alert: #9d7f1f;
+      --bg: #ffe100;
+      --panel: #ffe766;
+      --ink: #000000;
+      --muted: #000000;
+      --line: #d2bd00;
+      --earth: #e4cb00;
+      --green: #d8c000;
+      --alert: #000000;
       --shadow: 0 20px 50px rgba(120, 98, 26, 0.16);
       --radius: 16px;
     }
@@ -19,15 +19,15 @@
       font-family: "Manrope", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 10% 15%, rgba(245, 220, 120, 0.32), transparent 33%),
-        radial-gradient(circle at 84% 22%, rgba(250, 231, 152, 0.3), transparent 32%),
-        linear-gradient(180deg, #fffdf0, #fff6cd 70%, #fcecae);
+        radial-gradient(circle at 10% 15%, rgba(255, 215, 0, 0.35), transparent 33%),
+        radial-gradient(circle at 84% 22%, rgba(255, 230, 0, 0.34), transparent 32%),
+        linear-gradient(180deg, #fff04a, #ffe100 70%, #f1d300);
     }
 
     .app { position: relative; }
 
     .card {
-      background: linear-gradient(180deg, rgba(255, 252, 228, 0.98), rgba(255, 245, 196, 0.98));
+      background: linear-gradient(180deg, rgba(255, 234, 77, 0.98), rgba(255, 225, 0, 0.98));
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -38,6 +38,11 @@
     #map {
       height: 100dvh;
       width: 100%;
+      background: #ffd600;
+    }
+
+    #map .leaflet-tile-pane {
+      filter: sepia(0.35) saturate(1.15) hue-rotate(-12deg) brightness(1.04);
     }
 
     .legend-toggle {
@@ -50,11 +55,11 @@
       min-height: 40px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 250, 216, 0.95);
-      border: 1px solid #e8d995;
+      background: rgba(255, 233, 55, 0.95);
+      border: 1px solid #cfb400;
       font-size: 0.82rem;
       font-weight: 700;
-      color: #6a561a;
+      color: #000000;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
     }
 
@@ -65,8 +70,8 @@
       z-index: 700;
       padding: 10px;
       width: 220px;
-      background: rgba(255, 250, 216, 0.95);
-      border: 1px solid #e8d995;
+      background: rgba(255, 233, 55, 0.95);
+      border: 1px solid #cfb400;
       border-radius: 12px;
       box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
       font-size: 0.8rem;
@@ -77,7 +82,7 @@
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #6a561a;
+      color: #000000;
     }
 
     .legend-item {
@@ -110,7 +115,7 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 1.4rem;
       line-height: 1;
-      color: #6a561a;
+      color: #000000;
     }
 
     .btn-menu,
@@ -119,14 +124,14 @@
     button {
       width: 100%;
       border-radius: 12px;
-      border: 1px solid #e8d995;
+      border: 1px solid #cfb400;
       padding: 10px 11px;
       font-family: inherit;
       font-size: 0.94rem;
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.15s ease, box-shadow 0.2s ease;
-      background: #fff9dc;
+      background: #ffe95a;
       color: var(--ink);
     }
 
@@ -139,15 +144,15 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #ffe79a, #f6d766);
-      color: #5a4610;
-      border: 1px solid #d8bc5a;
+      background: linear-gradient(135deg, #ffe95a, #ffd600);
+      color: #000000;
+      border: 1px solid #bf9f00;
     }
 
     .btn-secondary {
-      background: linear-gradient(135deg, #ffefb9, #f2d88a);
-      color: #5a4610;
-      border: 1px solid #d8bc5a;
+      background: linear-gradient(135deg, #ffe95a, #ffd600);
+      color: #000000;
+      border: 1px solid #bf9f00;
     }
 
     .drawer {
@@ -172,7 +177,7 @@
       justify-content: space-between;
       padding: 14px 16px;
       border-bottom: 1px solid var(--line);
-      background: rgba(255, 248, 208, 0.95);
+      background: rgba(255, 229, 25, 0.95);
     }
 
     .drawer-title {
@@ -180,7 +185,7 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 1.7rem;
       line-height: 1;
-      color: #6a561a;
+      color: #000000;
     }
 
     .drawer-body {
@@ -196,7 +201,7 @@
     .section-label {
       margin: 0 0 4px;
       font-weight: 700;
-      color: #7a6320;
+      color: #000000;
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -208,13 +213,13 @@
       font-size: 0.9rem;
     }
 
-    label { font-size: 0.84rem; color: #7a6320; font-weight: 600; }
+    label { font-size: 0.84rem; color: #000000; font-weight: 600; }
 
     input, select, textarea {
       width: 100%;
       border-radius: 12px;
-      border: 1px solid #e8d995;
-      background: #fff9dc;
+      border: 1px solid #cfb400;
+      background: #ffe95a;
       color: var(--ink);
       font-family: inherit;
       font-size: 0.94rem;
@@ -224,8 +229,8 @@
     textarea { min-height: 74px; resize: vertical; }
 
     input:focus, select:focus, textarea:focus {
-      outline: 2px solid rgba(224, 193, 90, 0.4);
-      border-color: #d9be5a;
+      outline: 2px solid rgba(0, 0, 0, 0.25);
+      border-color: #000000;
     }
 
     .grid2 {
@@ -244,7 +249,7 @@
     .hint {
       margin: 0;
       font-size: 0.8rem;
-      color: #8a7232;
+      color: #000000;
     }
 
     .status {
@@ -272,17 +277,17 @@
     }
 
     .item {
-      border: 1px solid #e6d28c;
+      border: 1px solid #cfb400;
       border-radius: 12px;
-      background: #fff7d1;
+      background: #ffea63;
       padding: 10px;
     }
 
     .item h4 { margin: 0 0 4px; font-size: 0.96rem; }
-    .meta { margin: 0; font-size: 0.79rem; color: #8a7232; }
+    .meta { margin: 0; font-size: 0.79rem; color: #000000; }
 
     .wh-link {
-      color: #7a6320;
+      color: #000000;
       font-weight: 700;
       text-decoration: none;
     }
@@ -291,10 +296,10 @@
       display: grid;
       gap: 8px;
       margin-top: 4px;
-      border: 1px solid #e6d28c;
+      border: 1px solid #cfb400;
       border-radius: 12px;
       padding: 10px;
-      background: #fff6cb;
+      background: #ffe74d;
     }
 
     .day-row {
@@ -320,12 +325,12 @@
 
     .leaflet-popup-content-wrapper {
       border-radius: 14px;
-      border: 1px solid #cfbfa8;
+      border: 1px solid #cfb400;
       box-shadow: 0 12px 24px rgba(18, 27, 20, 0.22);
     }
 
-    .popup-name { margin: 0 0 4px; font-weight: 800; font-size: 1.05rem; color: #1f3725; }
-    .popup-line { margin: 0 0 5px; font-size: 0.84rem; color: #344734; }
+    .popup-name { margin: 0 0 4px; font-weight: 800; font-size: 1.05rem; color: #000000; }
+    .popup-line { margin: 0 0 5px; font-size: 0.84rem; color: #000000; }
 
     .map-pin-drop {
       position: relative;

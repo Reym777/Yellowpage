@@ -25,7 +25,8 @@
       mudanzas: { label: "mudanzas", color: "#495057" },
       clases_adultos: { label: "clases interactivas adultos", color: "#c2255c" },
       clases_ninos: { label: "clases interactivas ninos", color: "#2b8a3e" },
-      apotecary: { label: "apotecary", color: "#364fc7" },
+      apotecary: { label: "apothecary", color: "#364fc7" },
+      arquitectura_inmobiliaria: { label: "arquitectura e inmobiliaria", color: "#087f5b" },
       otro: { label: "otro", color: "#6741d9" },
     };
 
@@ -200,11 +201,11 @@
       if (view === "add") {
         infoView.classList.remove("active");
         addView.classList.add("active");
-        drawerTitle.textContent = "Yellow page Secret Valle";
+        drawerTitle.textContent = "Yellow Page Sacred Valley";
       } else {
         addView.classList.remove("active");
         infoView.classList.add("active");
-        drawerTitle.textContent = "Yellow page Secret Valle";
+        drawerTitle.textContent = "Yellow Page Sacred Valley";
       }
     }
 
